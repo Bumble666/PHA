@@ -1,0 +1,2 @@
+python finetune_trainer.py ./configs/experiments/glue_t5_base.json && /usr/bin/shutdown
+python finetune_trainer-Copy1.py ./configs/experiments/glue_t5_base.json
