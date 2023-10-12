@@ -46,12 +46,22 @@
     "loss_scaling": false,
     "tasks": [
         "rte",
+        "sst2",
         "mrpc",
-        "stsb"
+        "stsb",
+        "qqp",
+        "mnli",
+        "qnli",
+        "cola"
     ],
     "eval_tasks": [
         "rte",
+        "sst2",
         "mrpc",
-        "stsb"
+        "stsb",
+        "qqp",
+        "mnli",
+        "qnli",
+        "cola"
     ]
 }
