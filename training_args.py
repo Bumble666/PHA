@@ -239,6 +239,9 @@ class DataTrainingArguments:
             "than this will be truncated, sequences shorter will be padded."
         },
     )
+    precent_train: Optional[float] = field(
+        default=1.0, metadata={"help": "# training examples. -1 means use all."}
+    )
     n_train: Optional[int] = field(
         default=100, metadata={"help": "# training examples. -1 means use all."}
     )
