@@ -202,7 +202,7 @@ def main():
             dataset_class.get(task, seed=data_args.data_seed).get_dataset(
                 split="train",
                 percent=data_args.percent_train,
-                n_obs=-1,
+                n_obs=data_args.n_train,
                 add_prefix=True,
                 split_validation_test=training_args.split_validation_test,
             )
