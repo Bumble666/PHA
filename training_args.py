@@ -243,7 +243,7 @@ class DataTrainingArguments:
         default=1.0, metadata={"help": "# proportions of training examples. 1 means use all."}
     )
     n_train: Optional[int] = field(
-        default=100, metadata={"help": "# training examples. -1 means use all."}
+        default=-1, metadata={"help": "# training examples. -1 means use all."}
     )
     n_val: Optional[int] = field(
         default=-1, metadata={"help": "# validation examples. -1 means use all."}
