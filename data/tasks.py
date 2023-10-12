@@ -74,7 +74,7 @@ class AbstractTaskDataset(abc.ABC):
             split = split + "[:{}]".format(n_obs)
         return split
 
-    def get_shuffled_sampled_split(self, split, n_obs, precent):
+    def get_shuffled_sampled_split(self, split, n_obs, percent):
         # Defines the random generator.
         generator = torch.Generator()
         generator.manual_seed(self.seed)
@@ -82,7 +82,8 @@ class AbstractTaskDataset(abc.ABC):
         # size we reset it to the maximum available.
         mapped_split = self.split_to_data_split[split]
         dataset = self.load_dataset(mapped_split)
-        n_obs = int(len(dataset) * precent)
+        if n_obs == -1:
+            n_obs = int(len(dataset) * percent)
         # shuffle the dataset and get the random samples.
         train_size = len(dataset)
         indices = torch.randperm(train_size, generator=generator).tolist()
@@ -136,7 +137,7 @@ class AbstractTaskDataset(abc.ABC):
             return indices[validation_size // 2 :]
 
     def get_dataset(
-        self, split, precent, n_obs=None, add_prefix=True, split_validation_test=False
+        self, split, percent, n_obs=None, add_prefix=True, split_validation_test=False
     ):
         # For small datasets (n_samples < 10K) without test set, we divide validation set to
         # half, use one half as test set and one half as validation set.
@@ -158,11 +159,12 @@ class AbstractTaskDataset(abc.ABC):
             and split != "test"
         ):
             dataset = self.load_dataset(split="train")
-            n_obs = int(len(dataset) * precent)
+            if n==-1:
+                n_obs = int(len(dataset) * percent)
             indices = self.get_train_split_indices(split)
             dataset = self.select_dataset_samples(indices, dataset, n_obs)
         else:
-            dataset = self.get_shuffled_sampled_split(split, n_obs, precent)
+            dataset = self.get_shuffled_sampled_split(split, n_obs, percent)
         return dataset.map(
             functools.partial(self.preprocessor, add_prefix=add_prefix),
             remove_columns=dataset.column_names,
