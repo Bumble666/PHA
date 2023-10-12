@@ -43,4 +43,12 @@ For different proportions:
     # Number of samples in each task：5%
     python finetune_trainer.py ./configs/experiments/glue_t5_base_005.json
 
+# Reference
+if you find this repository useful, please cite our paper:
 
+    @inproceedings{hao2023hpa,
+      title={Prototype-based HyperAdapter for Sample-Efficient Multi-task Tuning},
+      author={Hao Zhao and Jie Fu and Zhaofeng He},
+      booktitle={Proceedings of EMNLP},
+      year={2023}
+    }
