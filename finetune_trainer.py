@@ -201,7 +201,7 @@ def main():
         train_datasets = [
             dataset_class.get(task, seed=data_args.data_seed).get_dataset(
                 split="train",
-                precent=data_args.precent_train,
+                percent=data_args.percent_train,
                 n_obs=-1,
                 add_prefix=True,
                 split_validation_test=training_args.split_validation_test,
@@ -216,7 +216,7 @@ def main():
         {
             task: dataset_class.get(task, seed=data_args.data_seed).get_dataset(
                 split="validation",
-                precent=1,
+                percent=1,
                 n_obs=data_args.n_val,
                 add_prefix=True,
                 split_validation_test=training_args.split_validation_test,
@@ -231,7 +231,7 @@ def main():
         {
             task: dataset_class.get(task, seed=data_args.data_seed).get_dataset(
                 split="test",
-                precent=1,
+                percent=1,
                 n_obs=data_args.n_test,
                 add_prefix=True,
                 split_validation_test=training_args.split_validation_test,
