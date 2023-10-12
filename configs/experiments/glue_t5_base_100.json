@@ -21,6 +21,7 @@
     "do_train": true,
     "do_test": true,
     "do_eval": true,
+    "n_train": 100,
     "predict_with_generate": true,
     "split_validation_test": true,
     "load_best_model_at_end": true,
