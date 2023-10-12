@@ -21,7 +21,7 @@
     "do_train": true,
     "do_test": true,
     "do_eval": true,
-    "percent_train": 0.01
+    "percent_train": 0.03,
     "predict_with_generate": true,
     "split_validation_test": true,
     "load_best_model_at_end": true,
